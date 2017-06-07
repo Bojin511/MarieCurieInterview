@@ -1,0 +1,30 @@
+﻿@model List<MarieCurie.Interview.Assets.Model.HelperService>
+@using MarieCurieInterview.Core.Helpers
+
+<div class="services-container">
+
+@foreach (var service in Model)
+{
+    
+    string hsClass = service.ServiceIsOpenNow() ? "openService" : "closedService";
+    <div class="@hsClass">
+        <h3 class="service-title">@service.Title</h3>
+        <div class="service-line"></div>
+        <p>@service.Description</p>
+        <p class="service-phone"><a href="tel:">@service.TelephoneNumber</a></p>
+        <div class="service-line"></div>
+        <p class="service-extra-info">@service.ExtraInfo()</p>
+
+        @*
+        <ul>
+            @foreach (int i in service.MondayOpeningHours)
+            {
+                <li>@i</li>
+            }
+        </ul>
+        *@
+    </div>
+
+}
+
+</div>
